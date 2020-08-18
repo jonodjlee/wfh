@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <form id="form" class="textgtreg" method="post">
+    <form id="form" class="textgtreg" method="post" action="https://formsubmit.co/bc7465f0b14036c3a724aed6c8863560">
 
         <cf-robot-message class="textgtreg" cf-questions="Hello my friend &#x1F44B;&amp;&amp;Let's begin..."></cf-robot-message>
         <input type="text" name="firstname" id="firstname" placeholder="firstname" cf-questions="What's your first name?" />
@@ -103,6 +103,7 @@
             <label for="coursefalse">No</label>
         </fieldset>
 
+        <input type="hidden" name="_webhook" value="https://hook.integromat.com/ckv595xf9a1uvh9kjykg4gyjp9s21opd">
 
     </form>
     <div id="cf-context" role="cf-context" cf-context></div>
@@ -140,13 +141,19 @@
                     success();
                 },
                 submitCallback: function() {
+                    const scriptURL = 'https://formsubmit.co/bc7465f0b14036c3a724aed6c8863560'
                     conversationalForm.addRobotChatResponse("That's it! Thanks for your time &#x1F60A;");
-
+                    fetch(scriptURL, {
+                            method: 'POST',
+                            body: new FormData(form)
+                        })
+                        .then(response => setTimeout(function() {
+                            window.location.reload();
+                        }, 5000))
+                        .catch(error => console.error('Error!', error.message));
                 }
             });
         };
 
     </script>
 </body>
-
-</html>
