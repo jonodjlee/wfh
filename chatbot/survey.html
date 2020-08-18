@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <form id="form" class="textgtreg" method="post" action="https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission">
+    <form id="form" class="textgtreg" method="post" action="https://mailthis.to/101946532@student.swin.edu.au">
 
         <cf-robot-message class="textgtreg" cf-questions="Hello my friend &#x1F44B;&amp;&amp;Let's begin..."></cf-robot-message>
         <input type="text" name="firstname" id="firstname" placeholder="firstname" cf-questions="What's your first name?" />
@@ -141,7 +141,7 @@
                     success();
                 },
                 submitCallback: function() {
-                    const scriptURL = 'https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission'
+                    const scriptURL = 'https://mailthis.to/101946532@student.swin.edu.au'
                     conversationalForm.addRobotChatResponse("That's it! Thanks for your time &#x1F60A;");
                     fetch(scriptURL, {
                             method: 'POST',
