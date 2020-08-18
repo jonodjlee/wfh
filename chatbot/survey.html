@@ -102,7 +102,7 @@
             <input required type="radio" name="course" id="coursefalse" value="no" cf-conditional-noremotepastchange="[\w\W]*" cf-conditional-yesremotepastchange="[\w\W]*">
             <label for="coursefalse">No</label>
         </fieldset>
-        
+
         <input type="hidden" name="_webhook" value="https://hook.integromat.com/ckv595xf9a1uvh9kjykg4gyjp9s21opd">
 
     </form>
@@ -141,9 +141,16 @@
                     success();
                 },
                 submitCallback: function() {
-                    // remove Conversational Form
-                    alert("You made it!");
-                    console.log("Form submitted...");
+                    const scriptURL = 'https://formsubmit.co/101946532@student.swin.edu.au'
+                    conversationalForm.addRobotChatResponse("That's it! Thanks for your time &#x1F60A;");
+                    fetch(scriptURL, {
+                            method: 'POST',
+                            body: new FormData(form)
+                        })
+                        .then(response => setTimeout(function() {
+                            window.location.reload();
+                        }, 5000))
+                        .catch(error => console.error('Error!', error.message));
                 }
             });
         };
