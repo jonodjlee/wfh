@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'gtreg';
+    src: url('../fonts/GT-Walsheim-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gtmed';
+    src: url('../fonts/GT-Walsheim-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gtbold';
+    src: url('../fonts/GT-Walsheim-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'circularbook';
+    src: url('../fonts/CircularStd-Book.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'circularbookitalic';
+    src: url('../fonts/CircularStd-BookItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'circularbold';
+    src: url('../fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'circularblack';
+    src: url('../fonts/CircularStd-Black.ttf') format('truetype');
+}
