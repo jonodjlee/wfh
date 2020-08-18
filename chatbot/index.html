@@ -55,18 +55,29 @@
             color: transparent;
             -webkit-text-stroke: 1px #fff;
         }
+
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10 wrapper">
                 <main class="" id="content">
-                    <div class="d-flex justify-content-center my-5">
-                        <div class="align-self-center">
-                            <div style="display: flex; align-items: center">
-                                <h2 class="white textcircbold squiggle ctabtn">Working From Home Survey</h2>
+                    <div class="flex-column" style="display: flex; justify-content: center;">
+                        <div class="d-flex flex-row justify-content-center mt-5">
+                            <div class="align-self-center">
+                                <div style="display: flex; align-items: center">
+                                    <h2 class="white textcircbold squiggle ctabtn">Working From Home Survey</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center mb-5">
+                            <div class="align-self-center">
+                                <div style="display: flex; align-items: center">
+                                    <p class="grey textcirc">v0.1.49 alpha</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,12 +111,18 @@
                         <a class="textcirc progressbtn boldbtn" href="survey.html">Take the survey &rarr;</a>
                     </div>
                 </main>
-                <div class="d-flex justify-content-center border-t">
+                <div class="d-flex justify-content-between border-t">
                     <div class="align-self-center">
-                        <footer id="footer">
+                        <div id="footer">
                             <p class="grey textcirc textsm textnomargin ">© 2020 Jonathan Lee. All rights reserved.</p>
 
-                        </footer>
+                        </div>
+                    </div>
+                    <div class="align-self-center">
+                        <div id="footer">
+                            <p class="grey textcirc textsm textnomargin ">Have a great <span id="daygreeting"><noscript>day</noscript></span>!</p>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,6 +132,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/daygreeting.js"></script>
 </body>
 
 </html>
