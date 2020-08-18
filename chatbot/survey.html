@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <form id="form" class="textgtreg" method="post" action="https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission">
+    <form id="form" class="textgtreg" method="post">
 
         <cf-robot-message class="textgtreg" cf-questions="Hello my friend &#x1F44B;&amp;&amp;Let's begin..."></cf-robot-message>
         <input type="text" name="firstname" id="firstname" placeholder="firstname" cf-questions="What's your first name?" />
@@ -139,13 +139,13 @@
                 flowStepCallback: function(dto, success, error) {
                     success();
                 },
-                /*submitCallback: function() {
+                submitCallback: function() {
                     conversationalForm.addRobotChatResponse("That's it! Thanks for your time &#x1F60A;");
                     //var formData = conversationalForm.getFormData();
                     var formDataSerialized = conversationalForm.getFormData(true);
                     //console.log("Formdata:", formData);
                     console.log("Formdata, serialized:", formDataSerialized);
-                    const scriptURL = 'https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission'
+                    const scriptURL = 'https://formsubmit.co/bc7465f0b14036c3a724aed6c8863560'
                     fetch(scriptURL, {
                              method: 'POST',
                              body: formDataSerialized
@@ -156,7 +156,6 @@
                          .catch(error => console.error('Error!', error.message));
                     
 
-*/
                   
 
                     /* const scriptURL = 'https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission'
