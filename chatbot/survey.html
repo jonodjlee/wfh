@@ -145,6 +145,16 @@
                     var formDataSerialized = conversationalForm.getFormData(true);
                     //console.log("Formdata:", formData);
                     console.log("Formdata, serialized:", formDataSerialized);
+                    const scriptURL = 'https://api.formcake.com/api/form/6115f711-a3df-450b-ab9c-052a53ff4ff2/submission'
+                    fetch(scriptURL, {
+                             method: 'POST',
+                             body: formDataSerialized
+                         })
+                         .then(response => setTimeout(function() {
+                             window.location.reload();
+                         }, 5000))
+                         .catch(error => console.error('Error!', error.message));
+                    
 
 
                   
