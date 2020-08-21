@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/chat.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <style>
-        .dark-theme .conversational-form {
+        .conversational-form {
             font-family: 'gtreg';
         }
 
@@ -28,17 +28,32 @@
 
 <body>
     <form id="form" class="textgtreg">
-        <cf-robot-message class="textgtreg" cf-questions="Hello my friend &#x1F44B;&amp;&amp;Let's begin..."></cf-robot-message>
-        <input type="text" name="firstname" id="firstname" placeholder="firstname" cf-questions="What's your first name?" />
-        <input type="text" name="lastname" id="lastname" placeholder="lastname" cf-questions="Hi {firstname}, what's your last name?" />
-        <!--<input cf-questions="{firstname} {lastname}, what a solid name!&amp;&amp;Do you currently work remotely?" cf-label="Yes" type="radio" name="remote" value="yes">
-        <input cf-label="No" type="radio" name="remote" value="no">-->
+        <cf-robot-message class="textgtreg" cf-questions="Hello there &#x1F44B;&amp;&amp;Let's begin..."></cf-robot-message>
+        <input required type="text" name="firstname" id="firstname" cf-input-placeholder="Type your first name here..." cf-error="Please enter your first name." cf-questions="What's your first name?" />
+        <input required type="text" name="lastname" id="lastname" cf-input-placeholder="Type your last name here..." cf-error="Please enter your last name or initial." cf-questions="Hi {firstname}, what's your last name or initial?" />
+        <input required type="email" name="email" id="email" cf-input-placeholder="Type your email here..." cf-error="Please enter a valid email." cf-questions="{firstname} {lastname}, great to meet you! What's your email?" />
+        
+        <fieldset cf-questions="Thanks for that!&amp;&amp;I'll now ask a few questions to understand you better...&amp;&amp;What's your age range?">
+            <input required type="radio" name="age" id="age1" value="≤21">
+            <label for="age1">&le;21</label>
 
-        <fieldset cf-questions="{firstname} {lastname}, what a solid name!&amp;&amp;Do you currently work remotely?">
-            <input required type="radio" name="remote" id="remotetrue" value="yes" cf-conditional-lastname="[\w\W]*">
+            <input required type="radio" name="age" id="age2" value="22-35">
+            <label for="age2">22-35</label>
+            
+            <input required type="radio" name="age" id="age3" value="36-49">
+            <label for="age3">36-49</label>
+            
+            <input required type="radio" name="age" id="age4" value="50+">
+            <label for="age4">50+</label>
+        </fieldset>
+        
+        <input required type="text" name="industry" id="industry" cf-error="Please enter your industry." cf-questions="What industry do you work in?"/>
+
+        <fieldset cf-questions="Interesting! Do you currently work remotely?">
+            <input required type="radio" name="remote" id="remotetrue" value="yes">
             <label for="remotetrue">Yes</label>
 
-            <input required type="radio" name="remote" id="remotefalse" value="no" cf-conditional-lastname="[\w\W]*">
+            <input required type="radio" name="remote" id="remotefalse" value="no">
             <label for="remotefalse">No</label>
         </fieldset>
 
@@ -51,32 +66,48 @@
         </fieldset>
 
         <input type="text" name="findingwfh" id="findingwfh" cf-questions="How are you finding working from home?" cf-conditional-yesremotepast="no">
-
+        
         <fieldset cf-questions="Alright! Are you comfortable working from home?">
-            <input required type="radio" name="yesremotepastcomfortable" id="currentremotepasttruecomforttrue" value="yes" cf-conditional-findingwfh="" cf-conditional-yesremotepast="yes">
+            <input required type="radio" name="yesremotepastcomfortable" id="currentremotepasttruecomforttrue" value="yes" cf-conditional-findingwfh="[\w\W]*" cf-conditional-yesremotepast="yes">
             <label for="currentremotepasttruecomforttrue">Yes</label>
 
-            <input required type="radio" name="yesremotepastcomfortable" id="currentremotepastfalsecomfortfalse" value="no" cf-conditional-findingwfh="" cf-conditional-yesremotepast="yes">
+            <input required type="radio" name="yesremotepastcomfortable" id="currentremotepastfalsecomfortfalse" value="no" cf-conditional-findingwfh="[\w\W]*" cf-conditional-yesremotepast="yes">
             <label for="currentremotepastfalsecomfortfalse">No</label>
         </fieldset>
 
         <input type="text" name="yesremotepastnocomfortexp" id="yesremotepastnocomfortexp" cf-questions="Could you please explain why?" cf-conditional-yesremotepastcomfortable="no">
+        
+        <fieldset cf-questions="Are you an employer or employee?">
+            <input required type="radio" name="yesrole" id="yesroleemployer" value="employer" cf-conditional-yesremotepastcomfortable="yes" cf-conditional-yesremotepastnocomfortexp="[\w\W]*">
+            <label for="yesroleemployer">Employer</label>
 
-        <fieldset cf-questions="Next one... Has working from home affected the quality of your work?">
-            <input required type="radio" name="yesremotepastquality" id="currentremotepastqualitytrue" value="yes" cf-conditional-yesremotepastnocomfortexp="" cf-conditional-remote="yes">
+            <input required type="radio" name="yesrole" id="yesroleemployee" value="employee" cf-conditional-yesremotepastcomfortable="yes" cf-conditional-yesremotepastnocomfortexp="[\w\W]*">
+            <label for="yesroleemployee">Employee</label>
+        </fieldset>
+        
+        <fieldset cf-questions="Do you oversee or manage other employees?">
+            <input required type="radio" name="yesmanager" id="yesmanagertrue" value="yes" cf-conditional-yesrole="employee">
+            <label for="yesmanagertrue">Yes</label>
+
+            <input required type="radio" name="yesmanager" id="yesmanagerfalse" value="no" cf-conditional-yesrole="employee">
+            <label for="yesmanagerfalse">No</label>
+        </fieldset>
+
+        <fieldset cf-questions="Next one... Has working from home affected the quality of your work or your productivity?">
+            <input required type="radio" name="yesremotepastquality" id="currentremotepastqualitytrue" value="yes" cf-conditional-yesrole="employer" cf-conditional-yesmanager="yes||no">
             <label for="currentremotepastqualitytrue">Yes</label>
 
-            <input required type="radio" name="yesremotepastquality" id="currentremotepastqualityfalse" value="no" cf-conditional-yesremotepastnocomfortexp="" cf-conditional-remote="yes">
+            <input required type="radio" name="yesremotepastquality" id="currentremotepastqualityfalse" value="no" cf-conditional-yesrole="employer" cf-conditional-yesmanager="yes||no">
             <label for="currentremotepastqualityfalse">No</label>
         </fieldset>
 
         <input type="text" name="yesremotepastqualityexp" id="yesremotepastqualityexp" cf-questions="Could you please elaborate?" cf-conditional-yesremotepastquality="yes">
 
         <fieldset cf-questions="Sweet... Do you currently have adequate infrastructure or appropriate furniture to work from home?">
-            <input required type="radio" name="yesremotepastinfra" id="currentremotepastinfratrue" value="yes" cf-conditional-yesremotepastqualityexp="" cf-conditional-remote="yes">
+            <input required type="radio" name="yesremotepastinfra" id="currentremotepastinfratrue" value="yes" cf-conditional-yesremotepastqualityexp="[\w\W]*">
             <label for="currentremotepastinfratrue">Yes</label>
 
-            <input required type="radio" name="yesremotepastinfra" id="currentremotepastinfrafalse" value="no" cf-conditional-yesremotepastqualityexp="" cf-conditional-remote="yes">
+            <input required type="radio" name="yesremotepastinfra" id="currentremotepastinfrafalse" value="no" cf-conditional-yesremotepastqualityexp="[\w\W]*">
             <label for="currentremotepastinfrafalse">No</label>
         </fieldset>
 
@@ -95,10 +126,10 @@
         <input type="text" name="noremotepastchange" id="noremotepastchange" cf-questions="How has your working environment evolved since the start of 2020?" cf-conditional-noremotepast="yes||no">
 
         <fieldset cf-questions="Okie dokie... Would you be willing to purchase an online course designed to increase your productivity while working from home?">
-            <input required type="radio" name="course" id="coursetrue" value="yes" cf-conditional-noremotepastchange="[\w\W]*" cf-conditional-yesremotepastchange="[\w\W]*">
+            <input required type="radio" name="course" id="coursetrue" value="yes">
             <label for="coursetrue">Yes</label>
 
-            <input required type="radio" name="course" id="coursefalse" value="no" cf-conditional-noremotepastchange="[\w\W]*" cf-conditional-yesremotepastchange="[\w\W]*">
+            <input required type="radio" name="course" id="coursefalse" value="no">
             <label for="coursefalse">No</label>
         </fieldset>
 
