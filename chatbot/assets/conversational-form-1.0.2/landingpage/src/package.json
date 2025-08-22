@@ -29,8 +29,8 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint": "^9.33.0",
+    "eslint-config-airbnb": "^19.0.4",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-eslint": "^1.0.7",
     "sass": "^1.21.0"
